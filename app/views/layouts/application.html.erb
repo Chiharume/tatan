@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tatan</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/d355b17692.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+  <body>
+  <header>
+   <h1>TATANsATELIE</h1>
+   <div class="header-list">
+    <ul>
+    <li><%= link_to "Home", posts_path %></li>
+    <li><%= link_to "New Posts",new_post_path %></li> 
+    <% if user_signed_in? %>
+    <%= link_to "Account", user_path(current_user.id) %>
+  <% end %>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Log-out', destroy_user_session_path, method: :delete %></li>
+     <% else %>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+     <% end %>
+    </ul>
+   </div>
+  </header>
+
+
+
+  
+ </body>
+  <body>
+    <%= yield %>
+  </body>
+
+  <footer>
+    <p>Copyright © Tatan All Rights Reserved.</p>
+  </footer>
+
+  </body>
+
+</html>
