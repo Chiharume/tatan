@@ -1,42 +1,89 @@
-<h2>一覧ページ</h2>
-<h3>投稿を検索</h3>
- <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag '検索する'  %>
-<% end %>
-<%= link_to "新規投稿へ", new_post_path %>
-<div class="posts-container">
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
-  <% @posts.each do |t| %>
-    <div class="post">
-    <% if user_signed_in? %>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
+</div>
+
+  <div class="zentai">
+    <div class="posts-search">
+      <h1>ALL POSTS</h1><br>
+      <h3>投稿を検索</h3>
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag '検索する'  %>
+      <% end %>
+    </div>
+
+    <div class="posts-container">
+      <% @posts.each_with_index do |t, index| %>
+          <div class="post">
+            <div class="left">
+              <% if (index + 1) % 3 == 0 %>
+                <%= image_tag @display_image_url, class: "display-image" %>
+              <% else %>
+                <div style="width: 150px; height: 280px;"></div>
+              <% end %>
+          </div>
+          <div class="image1">
+            <%= image_tag t.image_url, class:"image2", size: "260x285" if t.image? %>
+            <%= image_tag('Artframe3-700x749.png', class:"image3", size:"340x370") %>
+            <div class="posts-a">
+            <% if user_signed_in? %>
+              <% if current_user.already_liked?(t) %>
+                <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                  <%= t.likes.count %>
+                <% end %>
+              <% else %>
+                <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                  <i class="fas fa-heart"></i><%= t.likes.count %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          </div>
+          </div>
+
+
+          <div class="posts-setumei">
+            <b>Name:</b> 
+            <% if user_signed_in? %>
               <%= link_to t.user.name, user_path(t.user.id) %>
             <% else %>
               <%= link_to t.user.name, new_user_session_path %>
-            <% end %><br>
-      <%= t.title %>
-      <%= t.body %>
+            <% end %><br><br>
+            <b>Title:</b> <%= t.title %><br><br>
+            <b>Description:</b><br>
+            <%= t.body %><br>
 
-
-      <% if user_signed_in? %>
-      <% if current_user.already_liked?(t) %>
-          <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
-            <i class="fas fa-heart"></i><%= t.likes.count %>
-          <% end %>
-      <% else %>
-          <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
-            <i class="far fa-heart"></i><%= t.likes.count %>
-          <% end %>
-      <% end %>
-  <% else %>
-  <i class="far fa-heart"></i><%= t.likes.count %>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
-  <% end %>
-      <%= link_to "詳細へ", post_path(t.id) %>
-      <%= link_to "編集する", edit_post_path(t.id) %>
-      <%= button_to "削除する", post_path(t.id), method: :delete %>
+            <%= link_to "詳細へ", post_path(t.id) %><br><br>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= button_to "編集する", edit_post_path(t.id) %>
+              <%= button_to "削除する", post_path(t.id), method: :delete %>
+            <% end %> 
+        </div>
+   
+  
+  
+      <div class="right">
+        <% if (index + 1) % 3 == 0 %>
+          <%= image_tag @display_image_2, class: "display-image2" %>
+        <% else %>
+          <div style="width: 150px; height: 280px;"></div>
+        <% end %>
       </div>
+    </div>
   <% end %>
+</div>
+
+<div class="sita">
+  <%= image_tag('Ornament1.png', size:"420x230") %>
+</div>
+
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
 </div>

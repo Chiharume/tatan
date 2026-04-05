@@ -1,3 +1,117 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// マイページ
+.mypage{
+    text-align: center;
+    margin: 200px;
+    font-size: large;
+    position: relative;
+    bottom: 400px;
+}
+
+.allprofile{
+    font-size: large;
+    display: flex;
+    margin: 50px;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+.profile{
+    text-align: left;
+    margin: 50px;
+    position: relative;
+    bottom: 35px;
+    background-color: rgb(197, 179, 154);
+    height: 300px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.photo{
+    position: relative;
+    top: 5px;
+    bottom: 1px;
+
+}
+
+.kaoframe{
+    position: relative;
+    bottom: 405px;
+}
+
+.sub{
+    position: relative;
+    bottom: 300px;
+    
+}
+
+.mypost{
+    background-color: rgb(197, 179, 154);
+    flex-wrap: wrap;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.setsumei{
+    margin: 30px;
+    margin-bottom: 100px;
+
+}
+
+.sweet{
+    text-align: center;
+    position: relative;
+    top: 600px;
+    right: 30px;
+}
+
+.cake{
+    text-align: center;
+    position: relative;
+    top: 500px;
+    left: 70px;
+    
+}
+
+// ログインページ
+.log{
+    position: relative;
+    left: 44%;
+}
+
+// サインアップページ
+.signup{
+    position: relative;
+    left: 44%;
+    bottom: 170px;
+    font-size: large;
+}
+
+.moji{
+    position: relative;
+    left: 25px;
+}
+
+.action{
+    position: relative;
+    left: 50px;
+}
+
+// プロフィール編集ページ
+.cancel{
+    text-align: center;
+    position: relative;
+    right: 645px;
+}
+
+// パスワード忘れた
+.forget{
+    text-align: center;
+    font-size: large;
+    position: relative;
+    bottom: 200px;
+}

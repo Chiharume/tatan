@@ -1,42 +1,100 @@
-<h1>マイページ</h1>
-<p>名前 : <%= @user.name %></p>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-
-<div class="user-in">
-<h2><%= @user.email %></h2>
-
-<% if @user.id == current_user.id %>
-    <%= @msg %>
-<% else %>
-    <% if @isRoom == true %>
-        <p><%= link_to 'DMへ', room_path(@roomId) %></p>
-    <% else %>
-        <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e|%>
-                <% e.hidden_field :user_id, value: @user.id %>
-            <% end %>
-        <%= f.submit "DMを開始する"%>
-        <% end %>
-    <% end %>
-<% end %>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
 </div>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+<div class="mypage">
+  <h1>Account Page</h1><br>
 
-<h2>ユーザーの投稿一覧</h2>
-<% @user.posts.each do |t| %>
-  <%= @user.name %>
-  <%= t.body %>
-<% end %>
+  <div class="allprofile">
+    <div class="photo">
+      <%= image_tag @user.image_url, size: "300x350" if @user.image? %>
+      <div class="kaoframe">
+        <%= image_tag('Artframe2-700x741.png', size:"400x445") %>
+      </div>
+    </div>
 
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_posts.each do |t| %>
-  <%= t.user.name %>
-  <%= t.body %>
-<% end %>
-<%= link_to "Post一覧に戻る", posts_path %>
+    <div class="profile">
+      <p><b>Name :</b> <%= @user.name %></p><br>
+      <p><b>Mail :</b> <%= @user.email %></p><br>
+      <p><b>Profile :</b><br> <%= @user.profile %></p>
 
+      <% if @user.id == current_user.id %>
+        <%= @msg %>
+      <% else %><br>
+        <% if @isRoom == true %>
+          <p><%= link_to 'DM me', room_path(@roomId) %></p>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e|%>
+              <% e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+            <%= f.submit "DMを開始する"%>
+          <% end %>
+        <% end %>
+      <% end %><br>
+
+        <% if current_user.id == @user.id %>
+          <%= link_to "編集する", edit_user_registration_path %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="sub">
+      <% if @user.id == current_user.id %>
+        <h1>Your Posts</h1><br><br>
+      <% else %>
+        <h1>All Posts</h1><br><br>
+      <% end %>
+
+    <div class="mypost">
+      <% @user.posts.each do |t| %>
+        <div class="mye">
+          <%= image_tag t.image_url, size: "260x285" if t.image? %>
+        </div>
+       <div class="setsumei">
+        <b>Title:</b> <%= t.title %><br><br>
+        </b><%= t.body %>
+      </div>
+
+      <% end %><br>
+    </div><br><br><br>
+
+      <% if @user.id == current_user.id %>
+        <h1>All Posts you liked</h1><br>
+        <div class="mypost">
+          <% @user.liked_posts.each do |t| %>
+
+            <div class="mye">
+              <%= image_tag t.image_url, size: "260x285" if t.image? %>
+            </div>
+            <div class="setsumei">
+              <b>Posted by:</b> <%= t.user.name %><br><br>
+              <b>Title:</b> <%= t.title %><br><br>
+              <%= t.body %>
+            </div>
+
+          <% end %>
+         <% end %><br><br>
+        </div><br>
+
+      <%= link_to "HOMEに戻る", posts_path %>
+    </div>
+</div>
+
+<div class="sweet">
+  <%= image_tag('wan.png', size:"110x250") %>
+</div>
+
+  <div class="cake">
+    <%= image_tag('cake-7.png', size:"130x90") %>
+  </div>
+
+
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
+</div>

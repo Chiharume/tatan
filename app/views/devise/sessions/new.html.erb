@@ -1,26 +1,40 @@
-<h2>Log in</h2>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="log">
+  <h2>Log in</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="in">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="in">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <% if devise_mapping.rememberable? %>
+      <div class="in">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
     </div>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
+</div>
 
 <%= render "devise/shared/links" %>

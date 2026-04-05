@@ -1,38 +1,57 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
-<div class="user-in">
-<% @entries.each do |e| %>
-    <h3><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%></a></strong></h3>
-<% end %>
-<p>2人のDM❤️</p>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
 </div>
 
-<div class="dmMain">
-    <% @messages.each do |m| %>
-        <strong><%= m.body %></strong>
-        <small><%= m.user.email %>さん</small><hr>
-    <% end %>
+<div class="alldm">
+    <h1>Direct Message</h1><br><br>
+    <div class="hako">   
+        <div class="user-in">
+            <h3>DM for...</h3>
+            <div class="namae">
+                <% @entries.each do |e| %>
+                    <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong></h5>
+                <% end %>
+            </div>
+        </div>
 
-    <%= form_for @message do |f| %>
-    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
-    <%= f.hidden_field :room_id, :value => @room.id %>
-    <br>
-    <%= f.submit "送信する" %>
-    <% end %>
+        <div class="dmMain">
+            <% @messages.each do |m| %>
+                <strong><%= m.body %></strong>
+                <small><<%= m.user.name %>さん></small><hr><br>
+            <% end %><br>
+
+            <%= form_for @message do |f| %>
+            <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
+            <%= f.hidden_field :room_id, :value => @room.id %>
+            <br>
+            <%= f.submit "送信する" %>
+            <% end %>
+        </div><br>
+    </div>
 </div>
-
-<%= link_to "マイページに戻る", user_path(current_user.id) %>
-
 
 <style>
 .user-in{
     text-align:center;
     border:1px solid darkgray;
-    background-color:gainsboro;
+    background-color:rgb(197, 179, 154);
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
 }
 .dmMain{
     padding:30px;
     border:1px solid darkgray;
     background-color:gainsboro;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
 }
 </style>
+
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
+</div>

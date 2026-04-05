@@ -17,36 +17,77 @@
     padding: 0;
     margin: 0;
   }
-  body {
-    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
-      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+
+.neko{
+  margin-top: 65px;
+  position: relative;
+  left: 35%;
+  z-index: 1;
+}
+
+  .tatan{
+    position: absolute;
+    top: 0%;
+    left: 38%;
   }
+ 
+  body {
+    font-family: "Monotype Corsiva", fantasy;
+    background-color: #d7c9ab;
+  }
+
   header {
-    background-color: #8d7646;
-    height: 80px;
+    background-color: #b29a71;
+    height: 225px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   header a {
     color: white; 
-    text-decoration: none; 
+    text-decoration: none;
   }
-  header h1 {
-    color: white;
-    margin-left: 20px;
-  }
+
   .header-list {
     display: flex;
     align-items: center;
+    position: relative;
+    left: 0px;
+    font-size: large;
   }
+
+  .header-list li{
+    margin-right: 5vh;
+  }
+
+.home{
+  padding-left: 3vh;
+}
+
+.newpost{
+  padding-right: 1vh;
+}
+
+.login{
+  padding-left: 3vh;
+}
+
+.account{
+  padding-left: 2vh;
+}
+
+.logout{
+  padding-left: 1vh;
+}
+
   header ul {
     display: flex;
   }
   header li {
     list-style: none;
-    margin-right: 40px;
+    margin-right: 10px;
   }
   
   footer {
@@ -56,7 +97,13 @@
     bottom: 0;
     width: 100%;
     display: flex;
+    text-align: center;
     align-items: center;
     position: fixed;
-    justify-content: flex-end;
+    justify-content: center;
   }
+
+.image{
+  width: 50px;
+  height: 50px;
+}
