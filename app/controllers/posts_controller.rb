@@ -8,7 +8,9 @@ class PostsController < ApplicationController
   else
     @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
   end
-    end
+  @display_image_url = "SIDE-left.png" 
+  @display_image_2="SIDE1right.png"
+end
 
     def new
         @post = Post.new
@@ -48,7 +50,7 @@ class PostsController < ApplicationController
         post.destroy
         redirect_to action: :index
       end
-
+     
       private
       def post_params
         params.require(:post).permit(:title, :body, :image)

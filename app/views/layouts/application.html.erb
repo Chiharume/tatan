@@ -12,20 +12,71 @@
 
   <body>
   <header>
-   <h1>TATANsATELIE</h1>
-   <div class="header-list">
+  <div class="neko">
+    <%= image_tag('20231004-4.png', size:"90x180")%>
+  </div>
+
+  <div class="tatan">
+    <%= image_tag('tatan.PNG', size:"330x225")%>
+  </div> 
+
+  <div class="header-list">
     <ul>
-    <li><%= link_to "Home", posts_path %></li>
-    <li><%= link_to "New Posts",new_post_path %></li> 
-    <% if user_signed_in? %>
-    <%= link_to "Account", user_path(current_user.id) %>
-  <% end %>
-    <% if user_signed_in? %>
-      <li><%= link_to 'Log-out', destroy_user_session_path, method: :delete %></li>
-     <% else %>
-      <li><%= link_to "新規登録", new_user_registration_path %></li>
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-     <% end %>
+      <li>
+        <div class="list">
+          <%= image_tag('20240208-4 (1).png', size:"80x80")%>
+        </div>
+        <div class="home">
+          <%= link_to "Home", posts_path %>
+        </div>
+      </li>
+
+
+      <li>
+        <div class="list">
+          <%= image_tag('20231207-3.png', size:"80x80")%>
+        </div>
+        <div class="newpost">
+          <%= link_to "New Posts",new_post_path %>
+        </div>
+      </li>
+
+      <% if user_signed_in? %>
+        <li>
+          <div class="list">
+            <%= image_tag('20240208-6.png', size:"80x80")%>
+          </div>
+          <div class="account">
+            <%= link_to "Account", user_path(current_user.id) %>
+          </div>
+        </li>
+        <li>
+          <div class="list">
+            <%= image_tag('20231003-6.png', size:"80x80")%>
+          </div>
+          <div class="logout">
+            <%= link_to 'Log-out', destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <div class="list">
+            <%= image_tag('20240208-5 (1).png', size:"80x80")%>
+          </div>
+          <div class="list">
+            <%= link_to "New registration", new_user_registration_path %>
+          </div>
+        </li>
+
+        <li>
+          <div class="list">
+            <%= image_tag('20231003-8.png', size:"80x80")%>
+          </div>
+          <div class="login">
+            <%= link_to "Login", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
     </ul>
    </div>
   </header>

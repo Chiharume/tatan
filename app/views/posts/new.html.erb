@@ -1,20 +1,46 @@
-<h3>新しく投稿する</h3>
-<%= form_for @post do |f| %>
-    
-<div class="field">
-<%= f.label :title %>
-<%= f.text_field :title, :size => 30 %>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
 </div>
 
-<div class="field">
-<%= f.label :body  %>
-<%= f.text_area :body, :size => "30x2" %>
+<div class="newtokou">
+    <h1>Post your art</h1><br>
+    <div class="hello">
+        <%= form_for @post do |f| %>
+        
+        <div class="field">
+            <b><%= f.label :title %>:</b><br>
+            <%= f.text_field :title, :size => 30 %>
+        </div>
+
+        <div class="field">
+            <b><%= f.label :Description  %>:</b>
+            <%= f.text_area :body, :size => "30x2" %>
+        </div>
+
+        <div class="field">
+            <b><%= f.label :image %>:</b>
+            <%= f.file_field :image %>
+        </div><br>
+
+        <%= f.submit "投稿する" %>
+    </div>
+    <% end %>
 </div>
 
-<div class="field">
-<%= f.label :image %>
-<%= f.file_field :image %>
+<div class="dog">
+    <%= image_tag('20240208-6.png', size:"80x110") %>
 </div>
 
-<%= f.submit "投稿する" %>
-<% end %>
+<div class="chair">
+    <%= image_tag('20240213-3.png', size:"250x320") %>
+</div>
+
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
+</div>
+

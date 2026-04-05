@@ -1,16 +1,31 @@
-<h2>Forgot your password?</h2>
+<%= image_tag('corner1-768x1084 top left.png', size:"250x250") %>
+<div class="corner1">
+  <%= image_tag('corner1-768x1084 top right.png', size:"250x250") %>
+</div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="forget">
+  <h1>Forgot your password?</h1><br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <div class="fields">
+      <b><%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div><br>
 
-<%= render "users/shared/links" %>
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
+<div class="corner2">
+  <%= image_tag('corner1-768x1084.png', size:"250x250") %>
+</div>
+
+<div class="corner3">
+  <%= image_tag('corner1-768x1084 right.png', size:"250x250") %>
+</div>

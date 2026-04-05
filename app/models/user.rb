@@ -7,6 +7,7 @@ class User < ApplicationRecord
          has_many :messages, dependent: :destroy
          has_many :entries, dependent: :destroy
          validates :name, presence: true
+         validates :image, presence: true
          validates :profile, length: { maximum: 200 } 
          has_many :likes, dependent: :destroy
          has_many :liked_posts, through: :likes, source: :post
